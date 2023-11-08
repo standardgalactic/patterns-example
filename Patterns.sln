@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5C4D2BCD-093C-4337-87F0-BE71FD210D69}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{EA3C0B06-108C-4EA4-813C-AA28B0229934}"
+	ProjectSection(SolutionItems) = preProject
+		docs\readme.md = docs\readme.md
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Patterns", "src\Patterns.csproj", "{C9B7502F-D3B5-4FE5-9792-F3CEC8B8A82C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9B7502F-D3B5-4FE5-9792-F3CEC8B8A82C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9B7502F-D3B5-4FE5-9792-F3CEC8B8A82C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9B7502F-D3B5-4FE5-9792-F3CEC8B8A82C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9B7502F-D3B5-4FE5-9792-F3CEC8B8A82C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C9B7502F-D3B5-4FE5-9792-F3CEC8B8A82C} = {5C4D2BCD-093C-4337-87F0-BE71FD210D69}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6769B293-A895-4710-8C9C-2E7629957499}
+	EndGlobalSection
+EndGlobal
