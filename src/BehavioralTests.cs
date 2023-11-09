@@ -15,22 +15,25 @@ using Patterns.Behavioral.State.Banking;
 using Patterns.Behavioral.Strategy.Strategy;
 using Patterns.Behavioral.Template.DAO;
 using Patterns.Behavioral.Visitor.Employees;
-
-using V =Patterns.Behavioral.Visitor.ExpressionPrinting;
+using V = Patterns.Behavioral.Visitor.ExpressionPrinting;
 using P = Patterns.Behavioral.Visitor.Painting;
+
 namespace Patterns.Behavioral;
 
-public class BehavioralTests{
+public class BehavioralTests
+{
     private readonly ITestOutputHelper _testOutputHelper;
 
-    public BehavioralTests(ITestOutputHelper testOutputHelper) {
+    public BehavioralTests(ITestOutputHelper testOutputHelper)
+    {
         _testOutputHelper = testOutputHelper;
     }
 
     [Explanation(Name = "ChainOfResponsibility")]
     [Theory]
     [InlineData(new double[]{ 1, 2, 3, 4, 5 })]
-    public void ChainOfResponsibility_Calculator(double[] n) {
+    public void ChainOfResponsibility_Calculator(double[] n)
+    {
         Addition addition = new Addition();
         Subtraction subtraction = new Subtraction();
         Multiplication multiplication = new Multiplication();
@@ -44,7 +47,8 @@ public class BehavioralTests{
 
     [Explanation(Name = "ChainOfResponsibility")]
     [Fact]
-    public void ChainOfResponsibility_Signatories() {
+    public void ChainOfResponsibility_Signatories()
+    {
         var list = new Approvallist();
         Assert.True(list.All(v => v.Value == null));
         Chief chief = new();
@@ -66,7 +70,8 @@ public class BehavioralTests{
 
     [Explanation(Name = "Command")]
     [Fact]
-    public void Command_Garage() {
+    public void Command_Garage()
+    {
         var remote = new G.RemoteControl(3);
 
         var bike = new G.Garage("Bike");
@@ -78,8 +83,7 @@ public class BehavioralTests{
         var carDoorOpen = new G.GarageDoorOpenCommand(car);
 
         var garageButton = new G.OnOffStruct{
-            On = bikeDoorOpen,
-            Off = bikeDoorClose
+            On = bikeDoorOpen, Off = bikeDoorClose
         };
 
         remote[0] = garageButton;
@@ -108,10 +112,12 @@ public class BehavioralTests{
         Assert.True(true);
     }
 
+    
     [Explanation(Name = "Command", Link = @"https://www.dofactory.com/net/command-design-pattern",
         Description = "A little bit modified version")]
     [Fact]
-    public void Command_Calculator() {
+    public void Command_Calculator()
+    {
         var user = new C.User();
         user.Compute('+', 100);
         Assert.True(user.Result == 100);
@@ -135,13 +141,11 @@ public class BehavioralTests{
         Description = "A little bit modified version")]
     [Theory]
     [InlineData("MCMXXVIII", 1928)]
-    public void RomanNumerals(string n, int expected) {
+    public void RomanNumerals(string n, int expected)
+    {
         Context context = new(n);
         var expressions = new List<Expression>(){
-            new ThousandExpression(),
-            new HundredExpression(),
-            new TenExpression(),
-            new OneExpression()
+            new ThousandExpression(), new HundredExpression(), new TenExpression(), new OneExpression()
         };
 
         foreach (Expression exp in expressions){
@@ -154,19 +158,18 @@ public class BehavioralTests{
     [Explanation(Description = "Simplified", Link = "https://www.britannica.com/topic/Roman-numeral")]
     [Theory]
     [InlineData("MCMXXVIII", 1928)]
-    public void RomanNumerals_1(string n, int expected) {
+    public void RomanNumerals_1(string n, int expected)
+    {
         string[,] romenum = new string[4, 4]{
-            { "M", " ", " ", " " },
-            { "C", "CD", "D", "CM" },
-            { "X", "XL", "L", "XC" },
-            { "I", "IV", "V", "IX" }
+            { "M", " ", " ", " " },{ "C", "CD", "D", "CM" },{ "X", "XL", "L", "XC" },{ "I", "IV", "V", "IX" }
         };
 
         Assert.Equal(expected, 1928);
     }
 
     [Fact]
-    public void Iteration() {
+    public void Iteration()
+    {
         DemoCollection collection = new();
         collection[0] = new Item("Item 0");
         collection[1] = new Item("Item 1");
@@ -188,7 +191,8 @@ public class BehavioralTests{
 
     [Explanation(Name = "Mediator", Link = "https://www.dofactory.com")]
     [Fact]
-    private void Mediator_Chat() {
+    private void Mediator_Chat()
+    {
         var chatroom = new Chatroom();
         var George = new Beatle("George");
         var Paul = new Beatle("Paul");
@@ -215,7 +219,8 @@ public class BehavioralTests{
     }
 
     [Fact]
-    public void Memento_Care() {
+    public void Memento_Care()
+    {
         Originator o = new Originator();
         o.State = "On";
         Caretaker c = new Caretaker();
@@ -226,7 +231,8 @@ public class BehavioralTests{
 
     [Explanation(Name = "Memento", Link = "https://en.wikipedia.org/wiki/Memento_pattern")]
     [Fact]
-    public void MementoList() {
+    public void MementoList()
+    {
         var savedStates = new List<M.Memento>();
         var originator = new M.Memento.Originator();
         originator.Set("State1");
@@ -241,7 +247,8 @@ public class BehavioralTests{
 
     [Explanation(Name = "Observer", Link = "https://en.wikipedia.org/wiki/Memento_pattern")]
     [Fact]
-    public void Observer() {
+    public void Observer()
+    {
         ConcreteSubject s = new ConcreteSubject();
 
         s.Attach(new ConcreteObserver(s, "X"));
@@ -254,7 +261,8 @@ public class BehavioralTests{
 
     [Explanation(Link = "https://www.dofactory.com")]
     [Fact]
-    public void State_banking() {
+    public void State_banking()
+    {
         Account account = new Account("Jim Johnson");
         account.Deposit(500.0);
         account.Deposit(300.0);
@@ -265,7 +273,8 @@ public class BehavioralTests{
     }
 
     [Fact]
-    public void Strategy() {
+    public void Strategy()
+    {
         SortedList studentRecords = new SortedList();
         studentRecords.Add("Samual");
         studentRecords.Add("Jimmy");
@@ -280,7 +289,8 @@ public class BehavioralTests{
     }
 
     [Fact]
-    public void Template_DAO() {
+    public void Template_DAO()
+    {
         DataAccessObject daoCategories = new Postgres();
         daoCategories.Run();
 
@@ -289,7 +299,8 @@ public class BehavioralTests{
     }
 
     [Fact]
-    public void Visitor_Employees() {
+    public void Visitor_Employees()
+    {
         Employees e = new();
         e.Add(new Clerk());
         e.Add(new Director());
@@ -298,16 +309,16 @@ public class BehavioralTests{
     }
 
 
-    
     [Fact]
-    public void Visitor_Painting() {
+    public void Visitor_Painting()
+    {
         P.Picture picture = new P.Picture(new P.Scetch1(), new P.Scetch2());
         Assert.Equal(40, picture.Price);
-   }
+    }
 
     [Fact]
-    public void Visitor_ExpressionPrinting() {
-       
+    public void Visitor_ExpressionPrinting()
+    {
         var e = new V.Addition(
             new V.Addition(
                 new V.Literal(1),
@@ -315,9 +326,8 @@ public class BehavioralTests{
             ),
             new V.Literal(3)
         );
-        
+
         var printingVisitor = new V.ExpressionPrinting();
         e.Accept(printingVisitor);
-        
     }
 }
