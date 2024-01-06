@@ -29,7 +29,7 @@ public class BehavioralTests
         _testOutputHelper = testOutputHelper;
     }
 
-    [Explanation(Name = "ChainOfResponsibility")]
+   
     [Theory]
     [InlineData(new double[]{ 1, 2, 3, 4, 5 })]
     public void ChainOfResponsibility_Calculator(double[] n)
@@ -45,7 +45,7 @@ public class BehavioralTests
         Assert.Throws<InvalidOperationException>(() => addition.Handle(n, Action.divide));
     }
 
-    [Explanation(Name = "ChainOfResponsibility")]
+ 
     [Fact]
     public void ChainOfResponsibility_Signatories()
     {
@@ -68,7 +68,7 @@ public class BehavioralTests
     }
 
 
-    [Explanation(Name = "Command")]
+  
     [Fact]
     public void Command_Garage()
     {
@@ -99,7 +99,7 @@ public class BehavioralTests
         G.ICommand[] partyOff ={ new G.LightOnCommand(light), bikeDoorClose, carDoorClose };
 
         remote[2] = new G.OnOffStruct{ On = new G.MacroCommand(partyOn), Off = new G.MacroCommand(partyOff) };
-
+ 
         try{
             remote.PushOn(2);
             _testOutputHelper.WriteLine("");
@@ -113,8 +113,10 @@ public class BehavioralTests
     }
 
     
-    [Explanation(Name = "Command", Link = @"https://www.dofactory.com/net/command-design-pattern",
-        Description = "A little bit modified version")]
+    /// <summary>
+    /// A little bit modified version Command from <see href="https://www.dofactory.com/net/command-design-pattern">docfactory</see> 
+    /// </summary>
+    
     [Fact]
     public void Command_Calculator()
     {
@@ -137,8 +139,10 @@ public class BehavioralTests
         Assert.True(user.Result == 500);
     }
 
-    [Explanation(Name = "Interpreter", Link = @"https://www.dofactory.com",
-        Description = "A little bit modified version")]
+    /// <summary>
+    /// Interpreter, a modified version from <see href="https://www.dofactory.com"/>
+    /// </summary>
+    
     [Theory]
     [InlineData("MCMXXVIII", 1928)]
     public void RomanNumerals(string n, int expected)
@@ -155,7 +159,8 @@ public class BehavioralTests
         Assert.Equal(expected, context.Output);
     }
 
-    [Explanation(Description = "Simplified", Link = "https://www.britannica.com/topic/Roman-numeral")]
+    
+    /// <see href="https://www.britannica.com/topic/Roman-numeral"/>
     [Theory]
     [InlineData("MCMXXVIII", 1928)]
     public void RomanNumerals_1(string n, int expected)
@@ -163,23 +168,18 @@ public class BehavioralTests
         string[,] romenum = new string[4, 4]{
             { "M", " ", " ", " " },{ "C", "CD", "D", "CM" },{ "X", "XL", "L", "XC" },{ "I", "IV", "V", "IX" }
         };
-
         Assert.Equal(expected, 1928);
     }
 
     [Fact]
     public void Iteration()
     {
+        
+  
         DemoCollection collection = new();
-        collection[0] = new Item("Item 0");
-        collection[1] = new Item("Item 1");
-        collection[2] = new Item("Item 2");
-        collection[3] = new Item("Item 3");
-        collection[4] = new Item("Item 4");
-        collection[5] = new Item("Item 5");
-        collection[6] = new Item("Item 6");
-        collection[7] = new Item("Item 7");
-        collection[8] = new Item("Item 8");
+        Enumerable.Range(0,9).ToList().ForEach(x=>
+                collection[x] = new Item($"Item {x}")    
+            );
 
         DemoIterator iterator = collection.CreateIterator();
         iterator.Step = 2;
@@ -189,7 +189,7 @@ public class BehavioralTests
         }
     }
 
-    [Explanation(Name = "Mediator", Link = "https://www.dofactory.com")]
+    ///<see href="https://www.dofactory.com"/>
     [Fact]
     private void Mediator_Chat()
     {
@@ -229,7 +229,7 @@ public class BehavioralTests
         o.SetMemento(c.Memento);
     }
 
-    [Explanation(Name = "Memento", Link = "https://en.wikipedia.org/wiki/Memento_pattern")]
+    /// <see href= "https://en.wikipedia.org/wiki/Memento_pattern"/>
     [Fact]
     public void MementoList()
     {
@@ -245,7 +245,7 @@ public class BehavioralTests
         Assert.True(originator.State == "State3");
     }
 
-    [Explanation(Name = "Observer", Link = "https://en.wikipedia.org/wiki/Memento_pattern")]
+    /// <see href="https://en.wikipedia.org/wiki/Memento_pattern"/>
     [Fact]
     public void Observer()
     {
@@ -259,7 +259,7 @@ public class BehavioralTests
         s.Notify();
     }
 
-    [Explanation(Link = "https://www.dofactory.com")]
+    /// <see href="https://www.dofactory.com"/>
     [Fact]
     public void State_banking()
     {

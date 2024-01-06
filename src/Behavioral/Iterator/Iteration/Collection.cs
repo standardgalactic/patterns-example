@@ -12,15 +12,13 @@ internal class DemoCollection : IAbstractCollection
             return new DemoIterator(this);
         }
  
-        // Gets item count
-
+      
         public int Count
         {
             get { return _items.Count; }
         }
  
-        // Indexer
-
+     
         public object this[int index]
         {
             get { return _items[index]; }

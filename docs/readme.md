@@ -1,4 +1,7 @@
 
+I took examples from <https://www.dofactory.com/> and "<https://en.wikipedia.org>
+Sometimes changed for greater clarity.
+
 #### Behavioral
 1. **Strategy**  - just implementing the meaning of an abstract class or interface and nothing more.
 1. **Template**. Often used, natural as a strategy pattern. One of the implemented methods calls several abstract methods. Similar to Factory.
@@ -17,7 +20,7 @@ But still, the pattern is a little far-fetched. Any programming usually consists
 1.  **Memento** state saving Saving the state of the class. The trick is that the class that serves to save the Memento state is encapsulated, private. 
 1. **State** +  pattern that allows an object to alter its behavior when its internal state changes. 
 The state pattern can be interpreted as a strategy pattern, which is able to switch a strategy.The state pattern is used in computer programming to encapsulate varying behavior for the same object, based on its internal state. This can be a cleaner way for an object to change its behavior at runtime without resorting to conditional statements and thus improve maintainability.
-1. **Observer** + Good  patterп.
+1. **Observer** + Good patterп.
  
 #### Structural
 1. **Adapter** Is it possible to convert one type to another without using adapter?
@@ -31,7 +34,7 @@ The state pattern can be interpreted as a strategy pattern, which is able to swi
 #### Creational
 1. **Abstract** + often used
 1. **Builder** + actions are defined by the interface. 
-1. **Factory** Similar template -
+1. **Factory** similar template 
 1. **LazyInitialization**  -lazy class
 1. **ObjectPool**
 1. **Prototype** - class creation through cloning.
@@ -39,7 +42,7 @@ The state pattern can be interpreted as a strategy pattern, which is able to swi
 1. **MultiTon**   several singleton, it complicates testing.
 1. **ResourceAcquisition**
 
-> By and large any programmer who uses  interfaces and abstract classes is programming with patterns in any way. There is no another choice.
+> By and large any programmer who uses interfaces and abstract classes programs with patterns in any way. There is no another choice.
  
 ### As a joke, I present excerpts from 2 books.
 
