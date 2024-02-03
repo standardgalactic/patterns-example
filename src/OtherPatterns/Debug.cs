@@ -3,19 +3,24 @@ using System.Diagnostics;
 
 namespace Patterns.OtherPatterns;
 
-internal class DebugCheck{
-
-  internal  void CheckVal() {
-#if DEBUG
+internal class DebugCheck
+{
+    internal void CheckVal()
+    {
         bool result =
-#endif
+#if DEBUG
             SpinUntil(true);
+#else
+     SpinUntil(false);
+#endif
+
 #if DEBUG
         Debug.Assert(result);
 #endif
     }
 
-  private bool SpinUntil(bool v) {
-      return v;
-  }
+    private bool SpinUntil(bool v)
+    {
+        return v;
+    }
 }

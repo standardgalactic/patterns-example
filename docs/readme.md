@@ -1,6 +1,8 @@
 
-I took examples from <https://www.dofactory.com/> and "<https://en.wikipedia.org>
-Sometimes changed for greater clarity.
+Mostly I took examples from <https://www.dofactory.com/> and "<https://en.wikipedia.org>  
+Sometimes I edited them for greater clarity from my point of view. 
+
+I add interesting designs to `OtherPatterns` dir.  
 
 #### Behavioral
 1. **Strategy**  - just implementing the meaning of an abstract class or interface and nothing more.

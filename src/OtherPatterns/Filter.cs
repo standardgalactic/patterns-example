@@ -4,8 +4,9 @@ namespace Patterns.OtherPatterns;
 
 public class FilterTest
 {
-    [Fact]
-    public void Run()
+    [Theory]
+    [InlineData(4)]
+    public void Run(int expected)
     {
      
       Filter filter = new Filter();
@@ -14,7 +15,9 @@ public class FilterTest
       var f2 =  filter.Configure(f1);
       var a = new A();
       f2(a);
-      var result = a.count;
+      
+      Assert.Equal(expected,a.count);
+      
 
     }
 }

@@ -6,7 +6,10 @@ class BarrierPostPhaseException: Exception{
 
 public class Catch {
 
-    [Explanation (Description = "Throw in finally block")]
+   /// <summary>
+   ///  Throw in finally block
+   /// </summary>
+   /// <exception cref="BarrierPostPhaseException"></exception>
     [Fact]
     void Do() {
         Exception _exception= null;
