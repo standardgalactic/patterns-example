@@ -85,9 +85,8 @@ public class FeatureCollection : IFeatureCollection{
         }
     }
 
-    IEnumerator IEnumerable.GetEnumerator() {
-        return GetEnumerator();
-    }
+    IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+    
 
     /// <inheritdoc />
     public IEnumerator<KeyValuePair<Type, object>> GetEnumerator() {
